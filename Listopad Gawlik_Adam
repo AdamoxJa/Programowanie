@@ -1,0 +1,348 @@
+#include <iostream>
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+/*1. Zmienne, komunikacja z użytkownikiem. Instrukcje warunkowe
+1.1. Zadeklarować zmienne typu int, float, char. Przypisać do nich wartość, wyświetlić je na ekran.
+
+int main()
+{
+int liczba1=5;
+float liczba2=0.2;
+char ciag_znakow[5]={'W','I','T','A','M'};
+
+
+cout<< "Liczba 1 wynosi: "<<liczba1<<" Liczba 2 to: "<<liczba2<<" a ciag znakow: "<<ciag_znakow;
+};
+*/
+/*1.2. Wyświetlić zmienną typu int na ekran. Należy użyć metody printf i konstrukcji %d
+
+int main()
+{
+int liczba=12;
+
+cout<<liczba<<" to liczba calkowita";
+
+};
+*/
+/*1.3. Pobrać od użytkownika liczbę x. Wyświetlić kwadrat liczby x.
+
+int main()
+{
+int liczba=0;
+cout<<"Podaj liczbe: ";
+cin>>liczba;
+
+cout<<"Kwadrat liczby to: "<<liczba*liczba;
+
+};
+*/
+/*1.4. Zapoznać się z instrukcjami warunkowymi (if, else if, else oraz switch). Pobrać od używkownika liczbę i wyświetlić informację, czy jest
+ona: mniejsza, większa, czy równa 0.
+int main()
+{
+int liczba=0;
+cout<<"Podaj liczbe: ";
+cin>>liczba;
+if(liczba>0) cout<<"Liczba jest wieksza od 0";
+else if(liczba<0) cout<<"Liczba jest mniejsza od 0";
+else if(liczba==0) cout<<"Liczba jest rowna 0";
+
+};
+*/
+/*1.5. Pobrać ud użytkownika 3 liczby (x1, x2, x3). Wyświetlić informację, która z tych liczb jest największa.
+int main()
+{
+int x1=0;
+int x2=0;
+int x3=0;
+cout<<"Podaj liczbe x1: ";
+cin>>x1;
+cout<<"Podaj liczbe x2: ";
+cin>>x2;
+cout<<"Podaj liczbe x3: ";
+cin>>x3;
+
+if((x1>x2)&&(x1>x3))cout<<"Najwieksza liczba to: x1="<<x1;
+else if((x2>x1)&&(x2>x3)) cout<<"Najwieksza liczba to: x2="<<x2;
+else if((x3>x2)&&(x3>x1))cout<<"Najwieksza liczba to: x3="<<x3;
+};*/
+/*1.6. Napisać prosty kalkulator. Należy pobrać od użytkownika 2 liczby oraz operator (jeden z czterech: mnożenie, dzielenie, dodawanie,
+odejmowanie). Wymagane jest utworzenie prostego menu użytkownika. Uwaga - należy pamiętać o ułamkach (1/3 powinno dać 0.33, a nie
+0)
+int main()
+{
+float x1=0;
+float x2=0;
+char dzialanie;
+float wynik=0;
+cout<<"Podaj liczbe x1: ";
+cin>>x1;
+cout<<"Podaj liczbe x2: ";
+cin>>x2;
+cout<<"Podaj dzialanie: ";
+cin>>dzialanie;
+if(dzialanie=='+'){
+	wynik=x1+x2;
+	cout<<"Wynik dodawania to: "<<wynik;
+}
+else if(dzialanie=='-'){
+	wynik=x1-x2;
+	cout<<"Wynik odejmowania to: "<<wynik;
+}
+else if(dzialanie=='*'){
+	wynik=x1*x2;
+	cout<<"Wynik mnozenia to: "<<wynik;
+}
+else if(dzialanie=='/'){
+	wynik=x1/x2;
+	cout<<"Wynik dzielenia to: "<<wynik;
+}
+};*/
+//2. Pętle
+/*2.1. Zapoznać się z pętlą while. Pętla ta służy do wielokrotnego wykonania fragmentu kodu przez NIEZNANĄ Z GÓRY ilość razy. Pętla
+wykonuje się zawsze, jeśli warunek jest prawdziwy (ewaluowany do true). Napisać pętlę, w któej użytkownik podaje liczbę x. Należy
+wyświetlić tę liczbę. Jeżeli użytkownik poda 0, należy zakończyć program.
+int main()
+{
+int x=4;
+while(x!=0) {
+	cout<<"Podaj liczbe x: ";
+	cin>>x;
+	cout<<"Liczba x wynosi: "<<x<<endl;
+};
+};*/
+/*2.2. Przerobić kalkulator z zadania 1.6. Teraz po każdym działaniu program powinien spytać użytkownika, czy ten chce powtórzyć
+wszystko od początku. Jeśli tak - restartujemy kalkulator i zaczynamy od nowa. Jeśli nie - kończymy program.
+int main()
+{
+	string czy="tak";
+while(czy!="nie")
+{
+	float x1=0;
+	float x2=0;
+	char dzialanie;
+	float wynik=0;
+	cout<<"Podaj liczbe x1: ";
+	cin>>x1;
+	cout<<"Podaj liczbe x2: ";
+	cin>>x2;
+	cout<<"Podaj dzialanie: ";
+	cin>>dzialanie;
+	if(dzialanie=='+'){
+	wynik=x1+x2;
+	cout<<"Wynik dodawania to: "<<wynik;
+	}
+	else if(dzialanie=='-'){
+	wynik=x1-x2;
+	cout<<"Wynik odejmowania to: "<<wynik;
+	}
+	else if(dzialanie=='*'){
+	wynik=x1*x2;
+	cout<<"Wynik mnozenia to: "<<wynik;
+	}
+	else if(dzialanie=='/'){
+	wynik=x1/x2;
+	cout<<"Wynik dzielenia to: "<<wynik;
+	}
+	cout<<"Czy chcesz zresetowac kalkulator ? tak/nie"<<endl;
+	cin>>czy;
+}
+};*/
+/*2.3. Pobrać od użytkownika liczbę x. Należy wyświetlić wszystkie kolejne potęgi liczby x. Zakończyć program, kiedy liczba przekroczy 100
+000.
+int main()
+{
+int x=0;
+int wynik=0;
+cout<<"Podaj liczbe x: ";
+	cin>>x;
+	wynik=x;
+while(wynik<=100000) {
+	
+	wynik=wynik*x;
+	cout<<wynik;
+	cout<<endl;
+};
+};*/
+/*2.4. Pobrać od użytkownika liczbę x. Jeśli liczba jest niedodatnia - należy zakończyć program. Następnie należy wyświetlać kolejno (w
+nowej linii) wszystkie liczby mniejsze od x, aż osiągnięte zostanie 0.
+int main()
+{
+int x=0;
+int liczba;
+cout<<"Podaj liczbe x: ";
+cin>>x;
+
+if(x<0){
+	while(x<0){
+		int i=1;
+		x=x+i;
+		cout<<x<<endl;
+	}
+	
+
+};
+}*/
+/*2.5. Zapoznać się z instrukcjami continue; i break;. Pierwsza służy do zakończenia iteracji i przejścia do następnej, a druga natychmiast
+kończy pętlę. Przerobić program z zadania 2.4, aby wyświetlał tylko parzyste liczby (użyć if oraz continue). Jeśli liczba wynosi 40, należy
+wyjść z pętli i zakończyć program.
+
+int main()
+{
+int x=0;
+int liczba;
+cout<<"Podaj liczbe x: ";
+cin>>x;
+
+if(x<0){
+	while(x<0){
+		int i=1;
+		x=x+i;
+		if(x%2==0)cout<<x<<endl;
+		else if(x==40) break;
+		
+	}
+	
+
+};
+}*/
+/*2.6. Zapoznać się z pętlą for. Pętla służy do wykonania danego fragmentu kodu ZNANĄ Z GÓRY określoną ilość razy. Uwaga - każdą pętlę
+for można zastąpić pętlą while i wzajemnie. Zwyczajowo obowiazuje zasada, że jeśli ilość iteracji jest znana - używamy for, a jeśli nie jest
+znana (zależy od użytkownika lub jakiegoś stanu zewnętrznego) - używamy pętli while. Pętla for składa się z: ZMIENNEJ ITERACYJNEJ,
+czyli stanu początkowego pętli, np. int i = 0. Następnie WARUNKU ZAKOŃCZENIA PĘTLI, np. i<10. Następnie OPERACJI WYKONYWANEJ
+PO KAŻDEJ ITERACJI - zazwyczaj jest to zwiększenie iteratora o 1, czyli i = i + 1, bądź w skrócie i++. Napisać pętlę for, która wyświetli cyfry
+od 0 do 9.
+int main()
+{
+for(int i=0;i<=9;i++) cout<<i<<endl;
+};
+*/
+/*2.7. Pobrać od użytkownika liczby x i y. Zakładamy, że y > x (zawsze, nie musimy tego sprawdzać). Za pomocą pętli for wypisać liczby
+między x a y (do przemyślenia - co jest stanem początkowym, a co warunkiem zakończenia pętli?)
+int main()
+{
+int x=0;
+int y=0;
+cout<<"Podaj liczbe x: ";
+cin>>x;
+cout<<"Podaj liczbe y: ";
+cin>>y;
+x=x+1;
+for(x;x<y;x++) cout<<x<<endl;
+};*/
+/*2.8. Pobrać od użytkownika liczbę x. Za pomocą pętli for wypisać wszystkie liczby mniejsze od x, ale większe niż 0.
+int main()
+{
+int x=0;
+cout<<"Podaj liczbe x: ";
+cin>>x;
+x=x-1;
+for(x;x>0;x--) cout<<x<<endl;
+};*/
+/*2.9. Pobrać od użytkownika liczbę x. Za pomocą pętli for wypisywać CO TRZECIĄ liczbę większą od x. Pętla powinna się zakończyć, jeśli
+liczba przekroczy 100. Uwaga - proszę nie używać operacji continue i break, a sterować tylko parametrami pętli.
+int main()
+{
+int x=0;
+cout<<"Podaj liczbe x: ";
+cin>>x;
+
+for(x;x<=100;x++) if(x%3==0) cout<<x<<endl;
+};*/
+/*3.1. Napisać metodę void NewLine(). Powinna ona wypisać na ekran pojedynczą pustą linię. Użyć tej metodę w main().
+
+void NewLine();
+int main()
+
+{
+int x=0;
+cout<<"Podaj liczbe x: ";
+cin>>x;
+
+for(x;x<=100;x++) {
+	if(x%3==0) cout<<x;
+	NewLine();
+	
+}
+};
+void NewLine(){
+	cout<<endl;
+}*/
+/*3.2. Napisać metodę void NewLines(int count). Powinna ona wypisać tyle nowych linii, ile zostało podanych W PARAMETRZE count (należy
+użyć pętli for). Użyć metodę w main()
+
+void NewLines(int count);
+int main()
+
+{
+int count=6;
+int x=0;
+cout<<"Podaj liczbe x: ";
+cin>>x;
+
+for(x;x<=100;x++) {
+	if(x%3==0) cout<<x;
+	NewLines(count);
+	
+}
+};
+void NewLines(int count){
+	cout<<endl;
+}
+*/
+/*3.3. Napisać metodę void WriteBiggerNumber(int x, int y). Metoda powinna pobrać 2 parametry i zwrócić większy z nich. Wykorzystać
+funckję w metodzie main(). UWAGA - pobieranie liczb od użytkownika powinno odbyć się w funkcji main(), a NIE w WriteBiggerNumber! Do
+funkcji należy jedynie przesłać pobrane wcześniej parametry.
+
+void WriteBiggerNumber(int x,int y)
+{
+	string wynik="";
+	if (x > y) cout <<"Pierwsza liczba jest wieksza";
+	else if (x < y) cout<<"Druga liczba jest wieksza";
+	else cout<<"Liczby sa rowne";
+};
+
+int main()
+{
+int liczba1=0;
+int liczba2=0;
+
+
+cout<<"Podaj pierwsza liczbe: ";
+
+cin >> liczba1;
+
+cout<<"Podaj druga liczbe: ";
+
+cin >> liczba2;
+
+WriteBiggerNumber(liczba1,liczba2);
+}*/
+/*3.4. Napisać metodę Multiply(int x, int y) . Metoda powinna ZWRÓCIĆ (słowo kluczowe return) iloczyn dwóch parametrów. Uwaga! Metoda
+NIE POWINNA wypisywać wyniku - powinien on być wyświetlony w funkcji main!
+
+int Multiply(int x,int y)
+{
+	int w=x*y;
+	return w;
+};
+
+int main()
+{
+int liczba1=0;
+int liczba2=0;
+
+
+cout<<"Podaj pierwsza liczbe: ";
+
+cin >> liczba1;
+
+cout<<"Podaj druga liczbe: ";
+
+cin >> liczba2;
+
+int wynik=Multiply(liczba1,liczba2);
+cout<<"Iloczyn wynosi: "<<wynik;
+}*/
