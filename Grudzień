@@ -1,0 +1,677 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+  
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//1.1
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*int main() {
+	
+	int tab[4];
+	int max=tab[0];
+	cout << "Prosze podac pierwsza liczbe"<<endl;
+	cin>>tab[0];
+	cout << "Prosze podac druga liczbe"<<endl;
+	cin>>tab[1];
+	cout << "Prosze podac trzecia liczbe"<<endl;
+	cin>>tab[2];
+	cout << "Prosze podac czwarta liczbe"<<endl;
+	cin>>tab[3];
+	cout << "Prosze podac piata liczbe"<<endl;
+	cin>>tab[4];
+	
+	for(int i=1;i<5;)
+	{
+		
+		if(max>tab[i])
+		{
+			i++;
+		}
+		else
+		{
+			max=tab[i];
+			i++;
+		}
+	
+	}
+		cout<<"Najwieksza liczba to: "<<max;
+
+}*/
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//1.2
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+int main() {
+	
+	int tab[4];
+	cout << "Prosze podac pierwsza liczbe"<<endl;
+	cin>>tab[0];
+	cout << "Prosze podac druga liczbe"<<endl;
+	cin>>tab[1];
+	cout << "Prosze podac trzecia liczbe"<<endl;
+	cin>>tab[2];
+	cout << "Prosze podac czwarta liczbe"<<endl;
+	cin>>tab[3];
+	cout << "Prosze podac piata liczbe"<<endl;
+	cin>>tab[4];
+	
+	for(int i=0;i<5;i++)
+	{
+		
+	cout<<tab[i]<<endl;
+	
+	}
+
+		int n=-1;
+	for(int j=4;j>n;j--)
+	{
+		
+	cout<<tab[j]<<endl;
+	
+	}
+}*/
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//1.3
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+int main() {
+	int tab[4];
+	int war_pomoc=0;
+	cout << "Prosze podac pierwsza liczbe"<<endl;
+	cin>>tab[0];
+	cout << "Prosze podac druga liczbe"<<endl;
+	cin>>tab[1];
+	cout << "Prosze podac trzecia liczbe"<<endl;
+	cin>>tab[2];
+	cout << "Prosze podac czwarta liczbe"<<endl;
+	cin>>tab[3];
+	cout << "Prosze podac piata liczbe"<<endl;
+	cin>>tab[4];
+
+	for (int i=0;i<5;i++){                                                    
+     if (tab[i]<=tab[i+1]) war_pomoc=1;                             
+     if (tab[i]>tab[i+1] )                                     
+             {                                                          
+              war_pomoc=0;                                                   
+              cout<<"Tablica nie jest posortowana niemalejaco";        
+              break;                                                    
+             }
+             else{
+             	cout<<"Tablica jest posortowana niemalejaco";  
+             	break;
+			 }
+             
+    }
+
+
+
+}
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//2.1
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+bool IsSorted(int *a,int rozmiar)
+{
+	int war_pomoc=100;
+	for (int i=0;i<rozmiar-1;i++)
+		{                                                    
+     	if (a[i]<=a[i+1]) war_pomoc=1;                          
+     	if (a[i]>a[i+1])                                     
+            	{                                                          
+              		war_pomoc=0;                                                   
+              		break;                                                    
+             	}       
+   		}
+	if(war_pomoc=1) return true;
+	else if(war_pomoc=0) return false;
+}
+
+int main() {
+	int tab[4];
+	int size=5;
+	cout << "Prosze podac pierwsza liczbe"<<endl;
+	cin>>tab[0];
+	cout << "Prosze podac druga liczbe"<<endl;
+	cin>>tab[1];
+	cout << "Prosze podac trzecia liczbe"<<endl;
+	cin>>tab[2];
+	cout << "Prosze podac czwarta liczbe"<<endl;
+	cin>>tab[3];
+	cout << "Prosze podac piata liczbe"<<endl;
+	cin>>tab[4];
+	
+
+	
+	cout<<IsSorted(tab,size);
+	
+	
+	
+}
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//2.2
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+void printBackwards(int *a,int s)
+{
+	for(int i=s-1;i>=0;i--)
+	{	
+	cout<<a[i]<<endl;
+	}
+	
+}
+int main()
+{
+	int n=4;
+	int tab[4];
+	cout << "Prosze podac pierwsza liczbe"<<endl;
+	cin>>tab[0];
+	cout << "Prosze podac druga liczbe"<<endl;
+	cin>>tab[1];
+	cout << "Prosze podac trzecia liczbe"<<endl;
+	cin>>tab[2];
+	cout << "Prosze podac czwarta liczbe"<<endl;
+	cin>>tab[3];
+	cout << "Prosze podac piata liczbe"<<endl;
+	cin>>tab[4];
+	
+	printBackwards(tab,n);
+}
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//2.3	
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+void printDots(int *a,int n){
+ int i=0;
+ int j=0;
+ for(i=0;i<n;)
+ 	{
+    for(j=0;j<a[i];j++) cout<<(".");
+    cout<<endl;
+    i++;
+    }
+
+ }
+int main()
+{
+	int n=5;
+	int tab[4];
+	cout << "Prosze podac pierwsza liczbe"<<endl;
+	cin>>tab[0];
+	cout << "Prosze podac druga liczbe"<<endl;
+	cin>>tab[1];
+	cout << "Prosze podac trzecia liczbe"<<endl;
+	cin>>tab[2];
+	cout << "Prosze podac czwarta liczbe"<<endl;
+	cin>>tab[3];
+	cout << "Prosze podac piata liczbe"<<endl;
+	cin>>tab[4];
+	
+	printDots(tab,n);
+}
+*/
+	
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//2.4	
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+ int Sum(int *a,int n)
+ {
+
+ int i=0,wynik=0;
+ for (i=0;i<n;i++)
+ 	{
+        wynik=wynik+a[i];
+    }
+ 	return wynik;
+
+ }
+ int main()
+{
+	int n=5;
+	int tab[4];
+	cout << "Prosze podac pierwsza liczbe"<<endl;
+	cin>>tab[0];
+	cout << "Prosze podac druga liczbe"<<endl;
+	cin>>tab[1];
+	cout << "Prosze podac trzecia liczbe"<<endl;
+	cin>>tab[2];
+	cout << "Prosze podac czwarta liczbe"<<endl;
+	cin>>tab[3];
+	cout << "Prosze podac piata liczbe"<<endl;
+	cin>>tab[4];
+	
+	cout<<Sum(tab,n);
+}
+*/
+
+	
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//2.5
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+int main()
+{
+	int tab[6] = { 76, 54, 21, 32, 99, 13};
+ 
+    for (int i=0; i<5; i++)
+        for (int j=0; j<5; j++)
+            if (tab[j]>tab[j+1])
+                swap(tab[j], tab[j+1]);
+ 
+    for (int i = 0; i<6; i++)
+        cout << tab[i] << " ";
+ 
+
+}
+*/
+	
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//3.1
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+ int getLength(char *str)
+ {
+
+  int i=0;
+  int dlugosc=0;
+    while ( str[i]!='\0')
+	 {
+        dlugosc=dlugosc+1;
+        i++;
+    }
+  return dlugosc;
+
+ }
+ int main()
+{
+ char slowo[20];
+ cout<<"Podaj slowo do sprawdzenia dlugosci"<<endl;
+ cin>>slowo;
+ cout<<getLength(slowo);
+
+}
+*/
+	
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//3.2
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+  int getLength(char *str)
+ {
+
+  int i=0;
+  int dlugosc=0;
+    while ( str[i]!='\0')
+	 {
+        dlugosc=dlugosc+1;
+        i++;
+    }
+  return dlugosc;
+
+ }
+
+ void reverse(char *str){
+
+  int i=0;
+  for (i=getLength(str)-1;i>=0;i--)
+  {
+  	cout<<str[i];
+  }
+
+ }
+
+ int main()
+{
+ char slowo[20];
+ cout<<"Podaj slowo do sprawdzenia dlugosci"<<endl;
+ cin>>slowo;
+ reverse(slowo);
+
+}
+*/
+
+	
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//3.3
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+  int getLength(char *str)
+ {
+
+  int i=0;
+  int  dlugosc=0;
+    while ( str[i]!='\0')
+	 {
+        dlugosc=dlugosc+1;
+        i++;
+    }
+  return dlugosc;
+
+ }
+
+ bool containsDigits(char *str)
+ {
+
+   char digits[]={'0','1','2','3','4','5','6','7','8','9'};
+   int i=0;
+   int j=0;
+   for (j=0;j<getLength(str);j++)
+   {
+   		for (i=0;i<11;i++)
+		{
+			if (str[j]==digits[i] ) return 1;
+		}
+	}
+   return 0;
+ }
+  int main()
+{
+ char slowo[20];
+ cout<<"Podaj slowo do sprawdzenia dlugosci"<<endl;
+ cin>>slowo;
+ int wynik=containsDigits(slowo);
+ if(wynik==1)cout<<"True";
+ if(wynik==0)cout<<"False";
+
+
+}
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//3.4
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+/*
+   int getLength(char *str)
+ {
+
+  int i=0;
+  int  dlugosc=0;
+    while ( str[i]!='\0')
+	 {
+        dlugosc=dlugosc+1;
+        i++;
+    }
+  return dlugosc;
+
+ }
+
+ void reverse(char *str){
+
+  int i=0;
+  for (i=getLength(str)-1;i>=0;i--)
+  {
+  	cout<<str[i];
+  }
+
+ }
+
+
+ bool containsDigits(char *str)
+ {
+
+   char digits[]={'0','1','2','3','4','5','6','7','8','9'};
+   int i=0;
+   int j=0;
+   for (j=0;j<getLength(str);j++)
+   {
+   		for (i=0;i<11;i++)
+		{
+			if (str[j]==digits[i] ) return 1;
+		}
+	}
+   return 0;
+ }
+  int main()
+{
+ char slowo[20];
+ cout<<"Podaj lancuch"<<endl;
+ cin>>slowo;
+ cout<<"Dlugosc slowa to: "<<getLength(slowo)<<endl;
+ reverse(slowo);
+ cout<<endl;
+ int wynik=containsDigits(slowo);
+ if(wynik==1)cout<<"True";
+ if(wynik==0)cout<<"False";
+
+
+}
+*/
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//4.1
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+void printBackwards(int *a,int s)
+{
+	for(int i=s-1;i>=0;i--)
+	{	
+	cout<<a[i]<<endl;
+	}
+	
+}
+
+int main()
+{
+  int n=0;
+  int i=0;
+  int *tab;
+  cout<<"Podaj liczbe elementow tablicy:  ";
+  cin>>n;
+  tab=(int *) new int[n];
+  
+  for (i=0;i<n;i++){
+                    cout<<"Podaj liczbe nr:  ",i+1;
+                    cin>>tab[i];
+                   }
+  printBackwards(tab,n);
+ }
+ */
+ 
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//4.2
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+void printTable(int *a,int s)
+{
+
+ for (int i=0;i<s;i++)
+ {
+ 	cout<<i,a[i];
+ }
+}
+int main()
+{
+  int n=0;
+  int i=0;
+  int l=0;
+  int j=0;
+  int *tab;
+  cout<<"Podaj liczbe elementow tablicy:  ";
+  cin>>n;
+  tab=(int *) new int[n];
+  for (i=0;i<n;i++){
+                    cout<<"Podaj liczbe nr:  ",i+1;
+                    cin>>tab[i];
+                   
+				   if(tab[i]<0) l++;
+                   }
+                   
+   if ( l > 0)
+   {                                                    
+        int *tab2;                                         
+        tab2=(int *) new int[l];
+        for (i=0;i<n;i++)
+		{
+            if (tab[i] < 0) 
+		{                  
+            tab2[j] = tab[i];  
+            j++;
+        }
+        }
+    printTable(tab2,l);                           
+	delete[]tab2;
+	}
+
+  else cout<<"Brak wartosci ujemnych w pierwszej tablicy";
+  delete []tab;
+ }
+*/
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//4.3
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+ int AreArraysldentical(int *a1,int s1,int *a2,int s2){
+  int i=0;
+  int war_pomoc=1;
+  if (s1 != s2) war_pomoc=0;
+  else
+  {
+  for (i=0;i<s1;i++)
+  		{
+    		    if (a1[i] != a2[i]) 
+				{      
+                    war_pomoc=0;
+                    break;
+                }
+    	}
+	}
+
+	if (war_pomoc == 0) return 0;
+	else return 1;
+
+
+ }
+int main()
+{
+int tab[] = {1,2,4};
+int tab2[] = {1,2,3};
+	if (AreArraysldentical(tab,3,tab2,3))
+	{
+ 	cout<<"Tablice sa identyczne !!!";
+ 	}
+	else 
+	{
+	cout<<"Tablice sa rozne !!!";	
+	}
+
+}
+*/
+ 
+ //---------------------------------------------------------------------------------------------------------------------------------------------------
+
+//4.4
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+ int getLength(char *str)
+ {
+
+  int i=0;
+  int  dlugosc=0;
+    while ( str[i]!='\0')
+	 {
+        dlugosc=dlugosc+1;
+        i++;
+    }
+  return dlugosc;
+
+ }
+
+char * reverseString (char *s){
+
+  int size=getLength(s);
+  char *rev;
+  rev = (char *) new char[size];
+  int i=0;
+  int j=0;
+  int k=0;
+  for (i=size-1,j=0; i>=0 ; i-- ) {
+                               rev[j]=s[i];
+                               j++;
+                              }
+
+   rev[j]='\0';
+   return rev;
+
+  }
+int main()
+{
+	
+int str_dl=0;
+char *str;
+cout<<"Podaj ilosc znakow do wypisania " ;
+cin >> str_dl;
+str = (char *) new char[str_dl];
+
+cout<<"Podaj lancuch: ";
+cin.ignore();
+gets(str);
+
+char * result = reverseString(str);
+cout <<result;
+ 
+ 
+	delete []str;
+ 
+	delete []result;
+ 
+	return 0;
+
+
+}
+*/
