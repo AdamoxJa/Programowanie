@@ -1,0 +1,305 @@
+#include <iostream>
+#include <fstream>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+using namespace std;
+
+
+//-----------------------------------------------------------------------------------------------------------------
+//Zad. 1.1
+//-----------------------------------------------------------------------------------------------------------------
+/*struct Student
+{
+	int Age;
+	int Height;
+	int Semester;	
+};
+
+void PrintStudent(Student *s)
+{
+	
+	cout<<"Age: "<<s->Age<<endl<<"Height: "<<s->Height<<endl<<"Semester: "<<s->Semester<<endl;
+
+	
+}
+
+bool AreEqueal(Student *s1,Student *s2)
+{
+	if (s1->Age==s2->Age && s1->Height==s2->Height && s1->Semester==s2->Semester ) 
+	{
+  	return 1;
+	}
+	else
+	{
+	  return 0;
+	} 
+
+}
+
+Student* Create(int age,int height, int semester)
+{
+
+	Student *student = new Student;
+	student->Age=age;
+	student->Height=height;
+	student->Semester=semester;
+};
+int main(int argc, char** argv) {
+
+	Student *JanKowalski=Create(23,178,1);
+	Student *KamilNowak=Create(21,189,2);
+	PrintStudent(JanKowalski);
+	PrintStudent(KamilNowak);
+	if(AreEqueal(JanKowalski,KamilNowak)) 
+	{
+		cout<<"Dane są identyczne !!!";
+	}
+	else 
+	{
+		cout<<"Dane roznia sie !!!";
+	}
+	
+	delete [] JanKowalski;
+};
+*/
+//-----------------------------------------------------------------------------------------------------------------
+//Zad. 1.2
+//-----------------------------------------------------------------------------------------------------------------
+/*
+struct Student
+{
+	int Age;
+	int Height;
+	int Semester;	
+};
+
+void PrintStudent(Student *s)
+{
+	
+	cout<<"Age: "<<s->Age<<endl<<"Height: "<<s->Height<<endl<<"Semester: "<<s->Semester<<endl;
+
+	
+}
+
+bool AreEqueal(Student *s1,Student *s2)
+{
+	if (s1->Age==s2->Age && s1->Height==s2->Height && s1->Semester==s2->Semester ) 
+	{
+  	return 1;
+	}
+	else
+	{
+	return 0;
+	} 
+
+}
+
+Student* Create(int age,int height, int semester)
+{
+
+	Student *student = new Student;
+	student->Age=age;
+	student->Height=height;
+	student->Semester=semester;
+};
+int main(int argc, char** argv) {
+	
+	Student **tab_of_students= new Student*;
+		tab_of_students[0]=Create(19,201,1);
+		tab_of_students[1]=Create(31,189,7);
+		tab_of_students[2]=Create(29,165,6);
+		PrintStudent(tab_of_students[0]);
+		PrintStudent(tab_of_students[1]);
+		PrintStudent(tab_of_students[2]);
+		
+	delete [] tab_of_students;
+};
+*/
+//-----------------------------------------------------------------------------------------------------------------
+//Zad. 2
+//-----------------------------------------------------------------------------------------------------------------
+/*
+struct Node
+{
+    int Value;
+    Node * Next;
+};
+
+Node* Create (int value)
+{
+ Node *node_new=new Node; //alokacja nowego wezla o nazwie node_new
+ node_new->Value=value; //odniesienie sie do value od Node
+ node_new->Next=node_new;// wskazanie jako nastepnik na samego siebie
+ return node_new; // zwrocenie Node
+}
+
+Node* GetTail(Node* root)
+{
+Node* node_t=root;
+while(node_t->Next!=root)
+    {
+    node_t=node_t->Next;
+    }
+    return node_t;
+}
+
+void Add(Node* root, int value)
+{
+ Node* node_t=GetTail(root);
+ Node* node_n=new Node;
+ node_t->Next=node_n;
+ node_n->Next=root;
+ node_n->Value=value;
+}
+ 
+void PrintList(Node* root)
+{
+	if (root != NULL) 
+	{
+	Node* node_c=root;
+    Node* node_l=GetTail(root);
+    while(node_c!=node_l->Next)
+		{
+    	cout<<node_c->Value;
+    	node_c=node_c->Next;
+    	} 
+    }
+ }
+
+void RemoveNode(Node* root, int value)
+{
+Node* node_c=root;
+Node* punkt=NULL;
+while (node_c->Next != root)
+   {
+	punkt=node_c->Next;
+    if (punkt->Value==value) 
+		{
+        node_c->Next=punkt->Next;
+        delete [] punkt;
+
+   		}
+
+    node_c=node_c->Next;
+
+    }
+}
+
+int Count(Node* root)
+{
+Node* node_c=root;
+int c=1;
+while (node_c->Next!=root)
+	{
+    node_c=node_c->Next;
+    c++;
+	}
+
+ 	return c;
+}
+
+void FreeList(Node* root)
+{
+  Node* node_c=root;
+  Node* punkt=NULL;
+
+     while (node_c!=root)
+	{
+        punkt=node_c->Next;
+        cout<<"wezel o wartosci: "<<node_c->Value<<" zostanie usuniety ... ";
+        delete [] node_c;
+    	node_c=punkt;
+
+    }
+
+    cout<<"Licznik po czyszczeniu"<<Count(root);
+
+}
+
+
+
+
+int main(int argc, const char * argv[])
+{
+	Node *root = Create(2);
+	PrintList(root); // 2
+
+	
+	Add(root, 4);
+	Add(root, 8);
+	Add(root, 16);
+ 	PrintList(root); // 2 -> 4 -> 8 -> 16
+ 	
+ 	Add(root, 20);
+ 	PrintList(root); // 2 -» 4 -» 8 -> 16 -> 20
+ 	
+	cout<<"Ostatni wezel ma wartosc: "<< GetTail(root)->Value<<endl; // 20
+	
+ 	Add(root,16);
+ 	PrintList(root); // 2 -> 4 -> 8 -> 16 -> 20 -> 16
+	cout<<Count(root); //6
+
+ 	RemoveNode(root, 8);
+ 	PrintList(root); // 2 -> 4 -> 16 -> 20 -> 16
+ 	RemoveNode(root,10); //element nieistniejący
+	PrintList(root); // 2 -> 4 -> 16 -> 20 -> 16
+ 	RemoveNode(root, 16); // usuń wszystkie węzły o wartości 16
+ 	PrintList(root); //2->4->20
+ 	
+	cout<<Count(root); // 3
+
+ 	FreeList(root); // zwolnienie pamięci na wszystkie węzły.
+ 	
+ 	PrintList(root); // (nic, lista niezaalokowana)
+ 	
+	return 0;
+}
+
+*/
+//-----------------------------------------------------------------------------------------------------------------
+//Zad. 3.1
+//-----------------------------------------------------------------------------------------------------------------
+
+/*
+int main()
+{
+	int liczba=10;
+    fstream plik;
+    plik.open( "numbers.txt", ios::in | ios::out );
+    if( plik.good() == true )
+    {
+    	while(liczba!=0)
+    	{
+    		cout<<"Prosze podać liczbe: ";
+    		cin>>liczba;
+    		plik<<liczba;
+    		
+		}
+        
+        
+        plik.close();
+    }
+    return( 0 );
+}
+*/
+
+//-----------------------------------------------------------------------------------------------------------------
+//Zad. 3.2
+//-----------------------------------------------------------------------------------------------------------------
+/*
+
+struct Node
+{
+    int Value;
+    Node * Next;
+};
+
+
+int main()
+{
+fstream plik( "numbers.txt", ios::in ); 
+string dane;
+getline( plik, dane );
+cout<<dane;
+}
+*/
