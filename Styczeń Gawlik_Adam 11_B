@@ -31,7 +31,7 @@ bool AreEqueal(Student *s1,Student *s2)
 	}
 	else
 	{
-	  return 0;
+	return 0;
 	} 
 
 }
@@ -125,100 +125,96 @@ struct Node
     Node * Next;
 };
 
-Node* Create (int value)
+Node * Create (int value)
 {
- Node *node_new=new Node; //alokacja nowego wezla o nazwie node_new
- node_new->Value=value; //odniesienie sie do value od Node
- node_new->Next=node_new;// wskazanie jako nastepnik na samego siebie
- return node_new; // zwrocenie Node
+ Node *wezel= new Node;
+ wezel->Next=wezel;
+ wezel->Value= value;
+ return wezel;
 }
-
-Node* GetTail(Node* root)
+Node * GetTail(Node* root)
 {
-Node* node_t=root;
-while(node_t->Next!=root)
-    {
-    node_t=node_t->Next;
-    }
-    return node_t;
+	Node* korzen=root;
+		while (korzen->Next!=root)
+    	{
+    		korzen=korzen->Next;
+    	}
+    return korzen;
 }
-
 void Add(Node* root, int value)
 {
- Node* node_t=GetTail(root);
- Node* node_n=new Node;
- node_t->Next=node_n;
- node_n->Next=root;
- node_n->Value=value;
+
+ Node* tail_node=GetTail(root);
+ Node* nowy_wezel=new Node;
+ tail_node->Next=nowy_wezel;
+ nowy_wezel->Next=root;
+ nowy_wezel->Value=value;
+
 }
- 
 void PrintList(Node* root)
 {
-	if (root != NULL) 
-	{
-	Node* node_c=root;
-    Node* node_l=GetTail(root);
-    while(node_c!=node_l->Next)
+	Node* obecny=root;
+    Node* ostatni=GetTail(root);
+    	do
 		{
-    	cout<<node_c->Value;
-    	node_c=node_c->Next;
-    	} 
-    }
- }
+        cout<<" "<<obecny->Value;
+        obecny=obecny->Next;
+        
+    	} while (obecny!=ostatni->Next);
+    cout<<endl;
+	
+
+}
+
 
 void RemoveNode(Node* root, int value)
 {
-Node* node_c=root;
-Node* punkt=NULL;
-while (node_c->Next != root)
-   {
-	punkt=node_c->Next;
-    if (punkt->Value==value) 
+Node* obecny=root;
+Node* spr;
+	while (obecny->Next!=root)
+	{
+	spr=obecny->Next;
+    if (spr->Value==value)
 		{
-        node_c->Next=punkt->Next;
-        delete [] punkt;
-
-   		}
-
-    node_c=node_c->Next;
+    	obecny->Next=spr->Next;
+        delete [] spr;
+    	}
+		obecny=obecny->Next;
 
     }
-}
 
-int Count(Node* root)
-{
-Node* node_c=root;
-int c=1;
-while (node_c->Next!=root)
-	{
-    node_c=node_c->Next;
-    c++;
-	}
-
- 	return c;
 }
 
 void FreeList(Node* root)
 {
-  Node* node_c=root;
-  Node* punkt=NULL;
+Node * obecny = root;
+Node * nastepny = NULL;
 
-     while (node_c!=root)
-	{
-        punkt=node_c->Next;
-        cout<<"wezel o wartosci: "<<node_c->Value<<" zostanie usuniety ... ";
-        delete [] node_c;
-    	node_c=punkt;
-
-    }
-
-    cout<<"Licznik po czyszczeniu"<<Count(root);
-
+  while (NULL != obecny)
+  {
+	nastepny = obecny->Next;
+	delete [] obecny;
+	obecny = nastepny;
+  }
+  delete [] root;
 }
 
 
+int Count(Node* root)
+{
+
+Node* obecny=root;
+int ilosc=0;
+	while (obecny->Next!=root)
+	{
+        obecny=obecny->Next;
+        ilosc+=1;
+	}
+
+  return ilosc;
 
 
+}
 int main(int argc, const char * argv[])
 {
 	Node *root = Create(2);
@@ -231,25 +227,24 @@ int main(int argc, const char * argv[])
  	PrintList(root); // 2 -> 4 -> 8 -> 16
  	
  	Add(root, 20);
- 	PrintList(root); // 2 -» 4 -» 8 -> 16 -> 20
+ 	PrintList(root); // 2 -> 4 -> 8 -> 16 -> 20
  	
 	cout<<"Ostatni wezel ma wartosc: "<< GetTail(root)->Value<<endl; // 20
 	
  	Add(root,16);
  	PrintList(root); // 2 -> 4 -> 8 -> 16 -> 20 -> 16
-	cout<<Count(root); //6
+	cout<<Count(root)<<endl; //6
 
  	RemoveNode(root, 8);
  	PrintList(root); // 2 -> 4 -> 16 -> 20 -> 16
  	RemoveNode(root,10); //element nieistniejący
 	PrintList(root); // 2 -> 4 -> 16 -> 20 -> 16
  	RemoveNode(root, 16); // usuń wszystkie węzły o wartości 16
- 	PrintList(root); //2->4->20
+ 	PrintList(root); // 2 -> 4 -> 20
  	
 	cout<<Count(root); // 3
 
  	FreeList(root); // zwolnienie pamięci na wszystkie węzły.
- 	
  	PrintList(root); // (nic, lista niezaalokowana)
  	
 	return 0;
@@ -279,14 +274,14 @@ int main()
         
         plik.close();
     }
-    return( 0 );
+    return ( 0 );
 }
-*/
 
+*/
 //-----------------------------------------------------------------------------------------------------------------
 //Zad. 3.2
 //-----------------------------------------------------------------------------------------------------------------
-/*
+
 
 struct Node
 {
@@ -294,12 +289,67 @@ struct Node
     Node * Next;
 };
 
+Node * Create (int value)
+{
+	Node *wezel= new Node;
+	wezel->Next=wezel;
+	wezel->Value=value;
+	return wezel;
+}
+Node * GetTail(Node* root)
+{
+	Node* korzen=root;
+		while (korzen->Next!=root)
+    	{
+    		korzen=korzen->Next;
+    	}
+    return korzen;
+}
+void Add(Node* root, int value)
+{
+
+ Node* tail_node=GetTail(root);
+ Node* nowy_wezel=new Node;
+ tail_node->Next=nowy_wezel;
+ nowy_wezel->Next=root;
+ nowy_wezel->Value=value;
+
+}
+void PrintList(Node* root)
+{
+	Node* obecny=root;
+    Node* ostatni=GetTail(root);
+    	do
+		{
+        cout<<" "<<obecny->Value;
+        obecny=obecny->Next;
+        
+    	} while (obecny!=ostatni->Next);
+    cout<<endl;
+	
+
+}
 
 int main()
 {
 fstream plik( "numbers.txt", ios::in ); 
-string dane;
-getline( plik, dane );
-cout<<dane;
+if( plik.good() == false)
+{
+cout<< " Nastapil problem z plikiem !!!";
 }
-*/
+else
+{
+char dane;
+int liczba;
+plik.get(dane)>>liczba;
+Node *root = Create(liczba);
+ while (!plik.eof())
+ {
+ 	plik.get(dane);
+ 	Add(root,dane);
+ }
+ PrintList(root);
+
+plik.close();
+}
+}
